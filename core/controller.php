@@ -1,25 +1,56 @@
 <?php
+/**
+ * the core controller class - 
+ * Once the uri has been exploded the chunks are used to load the relevant
+ * page controller, and its parameters.
+ * The controller is also responsible for creating an instance of the theme class,
+ * which is used to build the page.
+ * Author David Norminton
+ * davidnorminton@gmail.com
+ */
 namespace core;
 
+spl_autoload_register(function ($classname) {
 
+    $file = APP_PATH . str_replace('\\', DS, $classname) . '.php';
+    echo $file;
+    if (file_exists($file)) {
+       echo "exists";
+       require_once ($file);   
+    } else {
+        header('HTTP/1.0 404 Not Found');
+        die('<h1>404 Not Found</h1><p>This file doesn\'t seem to exist</p><hr />');
+        return False;
+    }
 
-class controller{
+}, true, false);
+
+class controller {
     
-    public static function run()
+    //public $theme;
+    
+    public function __construct()
     {
-		$url = $_SERVER['REQUEST_URI'];
+      //  $theme = THEME ;
+      //  $set_theme = new $theme();
+
+      //  $this->theme = $set_theme;
+
 	    $query = explode('/',$_SERVER['REQUEST_URI']);
-        if (! isset($query[1])) {
+	    // remove first item in $query array
+	    array_shift($query);
+	    
+        if (empty($query[0])) {
             $classname = "index";
         } else {
-            $classname = $query[1];
+            $classname = $query[0];
         }
-        if (isset($query[2])) {
-            $methodname = $query[2];
-        }
+        // remove controller name from $query array
+        array_shift($query);
         $path = "\\nano\\controllers\\{$classname}";
-        $class = new $path();
-        $class::help();
+        echo $path;
+        $class = new $path($query);  
+
     }
 }
 
