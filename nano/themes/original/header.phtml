@@ -1,0 +1,11 @@
+<!doctype html>
+<html>
+  <head>
+    <title><?= $this->title ?></title>
+<?php
+foreach($this->css as $css) {
+  echo "\t".'<link rel="'.$css.'" type="stylesheet">' . "\n";         
+}
+?>
+  </head>
+  <body>  

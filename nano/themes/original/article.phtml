@@ -1,0 +1,9 @@
+<?php 
+
+echo "<h1>" . $this->title . "</h1>\n";
+foreach($this->articles as $items){
+     echo "\t<h2>" . $items['title'] . "</h2>\n";
+     echo "\t<p>" .$items['body'] ."</p>\n";  
+}
+?>
+
