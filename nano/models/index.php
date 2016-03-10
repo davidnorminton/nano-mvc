@@ -7,17 +7,22 @@ namespace nano\models;
 
 class index extends \core\model
 {
-    private $title = "This title is set from the model";
+    private $title = "This is the page title";
     
-    private $vars;
+    private $vars, $inc;
     
     private $articles = array(
-                              ['title'=>"title1", 'body'=>'hello from 1'],
-                              ['title'=>"title2", 'body'=>'hello from 2']
+                              ['title'=>"This is the first title",
+                               'body'=>'Below is a random image',
+                               'img'=> 'http://www.passmark.com/images/monitortestscreenshot5.gif'],
+                              ['title'=>"This is the second title", 
+                               'body'=>'Below is another random image',
+                               'img'=>'http://www.passmark.com/images/monitortestscreenshot3.jpg']
                              );
     
-    public function __construct($param)
+    public function __construct($inc, $param)
     {
+     $this->inc = $inc;
      $this->vars = $param;
     }  
     
@@ -30,6 +35,10 @@ class index extends \core\model
     {
       return $this->articles;
     }
-
     
+    public function getInc()
+    {
+       return $this->inc;
+    }
+     
 } 
