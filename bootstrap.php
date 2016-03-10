@@ -22,7 +22,7 @@ define("THEME", "original");
 define("THEME_PATH", APP_PATH . "nano" . DS . "themes" . DS . THEME . DS);
 define("THEME_HEADER", THEME_PATH . "header.phtml");
 define("THEME_FOOTER", THEME_PATH . "footer.phtml");
-define("THEME_NAMESPACE", "\\nano\\themes\\original\\theme");
+define("THEME_NAMESPACE", "\\core\\theme");
 define("CACHE", True);
 
 // test time
