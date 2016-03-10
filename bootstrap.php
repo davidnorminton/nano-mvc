@@ -24,42 +24,8 @@ define("THEME_HEADER", THEME_PATH . "header.phtml");
 define("THEME_FOOTER", THEME_PATH . "footer.phtml");
 define("THEME_NAMESPACE", "\\core\\theme");
 define("CACHE", True);
+$class = new \core\frontcontroller();  
 
-// test time
-$time1 = microtime();
-// if page in cache load 
-$url = $_SERVER['REQUEST_URI'];
-$url = str_replace('/', '', $url);
-$fp = '/var/www/nano/cache/'.$url.'.html';
-if(file_exists($fp) && CACHE == True){
-   echo "using cache";
-   echo file_get_contents($fp);
- $time2 = microtime();
- echo "\n Time Taken " .$time2 - $time1;  
-} else {       
-  // file not in cache so create page
-  echo "creating new";
-/**
- * get url - and load correct controller
- */
- $query = explode('/',$_SERVER['REQUEST_URI']);
- // remove first item in $query array
- array_shift($query);
-	   
- if (empty($query[0])) {
-     $classname = "index";
- } else {
-     $classname = $query[0];
- }        
- // remove controller name from $query array
- array_shift($query);
-     
- // create instance of controller for page
- $controller_namespace = "\\nano\\controllers\\{$classname}";
- $class = new $controller_namespace($query);  
-  $time2 = microtime();
- echo "\n Time Taken " .$time2 - $time1; 
-}
         
 
 
