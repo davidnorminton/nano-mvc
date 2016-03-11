@@ -22,11 +22,11 @@ class frontcontroller{
        $this->uri = $_SERVER['REQUEST_URI'];
        
        // remove / from url to form file name
-       $url = str_replace('/', '', $url);
+       $cache_file = str_replace('/', '', $this->uri);
        
        // cache file path
-       $fp = CACHE_PATH . $url . '.html';
-       
+       $fp = CACHE_PATH . $cache_file . '.html';
+
        // make sure the cache file exists and developer wants to use the cache sys
        if (file_exists($fp) && CACHE == True){
            // load cache file
