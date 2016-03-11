@@ -23,14 +23,21 @@ class controller {
     {
 
         $url = $_SERVER['REQUEST_URI'];
+        
+        // create file friendly name for cache file
         $url = str_replace('/', '', $url);
+        
         // cache file path
         $fp = CACHE_PATH . $url . '.html';
+        
         if (is_writable(CACHE_PATH)) {
+
            // create file and make ready to write 
            $myfile = fopen($fp, "w") or die("Unable to open file!");
+
            // give correct permissions
            chmod($myfile, 0644);
+
            // write contents
            fwrite($myfile, $contents);
            fclose($myfile);
@@ -39,10 +46,16 @@ class controller {
     
     public function __destruct()
     {
-        if ( $this->theme == NULL)
-           throw new Exception("class of type theme not instansiated");
-        // create a cache file of contents
-            $this->cacheFile($this->theme->getCache()); 
+      // check we have a theme object instansiated
+      if ($this->theme  instanceof theme ) {   
+        // run cache function
+        $this->cacheFile($this->theme->getCache());
+      } else {
+          // inform dev of error
+          throw new \core\Exception('An object of type theme must be instansiated');
+
+      }   
+        
     }
 
 }
