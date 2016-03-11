@@ -7,30 +7,50 @@ namespace core;
 
 class frontcontroller{
    
-    
+   /*
+    * @var string $uri - url of page
+    * access private
+    */ 
    private $uri;
-
+   
+   /**
+    * __construct stores the uri in $uri property
+    * 
+    */
    public function __construct()
    {
        $this->uri = $_SERVER['REQUEST_URI'];
+       
+       // remove / from url to form file name
        $url = str_replace('/', '', $url);
-       $fp = '/var/www/nano/cache/'.$url.'.html';
+       
+       // cache file path
+       $fp = CACHE_PATH . $url . '.html';
+       
+       // make sure the cache file exists and developer wants to use the cache sys
        if (file_exists($fp) && CACHE == True){
-          echo "using cache";
-          echo file_get_contents($fp);
+           // load cache file
+           echo file_get_contents($fp);
        } else {
+          // no cache file so run the correct page controller
           $this->loadController();
        }   
    }
 
+   /**
+    * method to load correct controller based on first parameter of uri
+    *
+    */
    public function loadController()
    {
        $query = explode('/',$this->uri);
        // remove first item in $query array
        array_shift($query);
 	   
+	   // if only domain name given load a default controller
        if (empty($query[0])) {
-          $classname = "index";
+          // set in bootstrap
+          $classname = DEFAULT_CONTROLLER;
        } else {
           $classname = $query[0];
        }        
