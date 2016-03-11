@@ -11,7 +11,7 @@ spl_autoload_register(function ($classname) {
        require_once ($file);   
     } else {
         header('HTTP/1.0 404 Not Found');
-        die('<h1>404 Not Found</h1><p>This file doesn\'t seem to exist</p><hr />');
+        die(header('Location: 404.html'));
         return False;
     }
 }, true, false);
