@@ -24,7 +24,7 @@ define('THEME_HEADER', THEME_PATH . 'header.phtml');
 define('THEME_FOOTER', THEME_PATH . 'footer.phtml');
 define('THEME_NAMESPACE', "\\core\\theme");
 define('CACHE', True);
-define('CACHE_PATH', APP_PATH . 'nano' . ds . 'cache' . ds);
+define('CACHE_PATH', APP_PATH . 'nano' . DS . 'cache' . DS);
 define('DEFAULT_CONTROLLER', 'index');
 $class = new \core\frontcontroller();  
 
