@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    width: 100%;
+    height: 40px;
+    background: #28284E;
+    padding: 10px;
+    color: #E8E4E4;
+}
+.center{
+    width: 980px;
+    margin: 0 auto;
+}
+#content{
+    width: 980px;
+    margin: 0 auto;
+}
+.post{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    width: 450px;
+    float: left;
+    margin: 8px;
+}
+footer{
+    clear: both;
+    
+}
