@@ -1,9 +1,14 @@
-<h1><?= $vars['title'] ?></h1>
+<div id="content">
+  <h1><?= $vars['title'] ?></h1>
 
 <?php
 foreach($vars['articles'] as $items) { ?>
+  <div class="post">
     <h2><?= $items['title'] ?></h2>
-    <p><?= $items['body'] ?></p>  
-    <img width="200" src="<?= $items['img'] ?>">
+
+    <img width="100%" src="<?= $items['img'] ?>">
+    <p><?= $items['body'] ?></p>      
+  </div>  
 <?php } ?>
+</div>
 
