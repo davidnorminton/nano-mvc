@@ -57,8 +57,9 @@ class frontcontroller{
        // remove controller name from $query array
        array_shift($query);
      
-       // create instance of controller for page
+       // controller namespace to use to start app
        $controller_namespace = "\\nano\\controllers\\{$classname}";
+       // create instance of controller
        $class = new $controller_namespace($query);  
    }
 } 
