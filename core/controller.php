@@ -10,7 +10,10 @@ namespace core;
 
 class controller {
 
-    
+    /**
+     * static method getTheme
+     * returns an object of type \core\theme
+     */
     public static function getTheme()
     {
         // theme is set in bootstrap.php
@@ -18,10 +21,17 @@ class controller {
         // create an instance of template class
         return new $theme();
     }
-    
+
+    /**
+     * method cacheFile - creates a cache of page
+     * @param string $contents - a parsed html string which will be written to file
+     *
+     */    
     public function cacheFile($contents)
     {
-
+        if (empty($contents)) {
+           throw new \Exception("Problem in " . __CLASS__ . " " . __METHOD__);
+        }
         $url = $_SERVER['REQUEST_URI'];
         
         // create file friendly name for cache file
@@ -44,15 +54,18 @@ class controller {
         }   
     }
     
+    /**
+     * destruct method - create a cache of page when object has finished running
+     */
     public function __destruct()
     {
-      // check we have a theme object instansiated
+      // check we have a theme object instansiated otherwise this will not work!
       if ($this->theme  instanceof theme ) {   
         // run cache function
         $this->cacheFile($this->theme->getCache());
       } else {
-          // inform dev of error
-          throw new \core\Exception('An object of type theme must be instansiated');
+          // inform dev an error
+          throw new \Exception('An object of type theme must be instansiated');
 
       }   
         
