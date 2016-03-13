@@ -8,7 +8,7 @@
  */
 namespace core;
 
-class controller {
+abstract class controller  {
 
     /**
      * static method getTheme

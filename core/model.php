@@ -5,13 +5,6 @@
 namespace core;
 
 
-
-
-class model
-{
-  public function __construct()
-  {
-     //echo __METHOD__;
-  }
+abstract class model {
 
 } 

@@ -5,9 +5,23 @@
  */
 namespace core;
 
-class view
+abstract class view 
 {
 
+    // an instance of the model used
+    protected $model;
+    
+    
+    /**
+     * method construct - loads the model instance into the $model property
+     * Ensure the model is of type model
+     */    
+    public function __construct(\nano\models\index $model)
+    {
+         $this->model = $model;
+    }
+    
+    
     /**
      * render method
      * @param array $vars - containd data to be added to html
@@ -23,6 +37,6 @@ class view
          return ob_get_clean(); 
     }   
     
+    abstract public function build();
+    
 }
-
- 
