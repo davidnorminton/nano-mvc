@@ -3,15 +3,10 @@
 
 <?php
 foreach($vars['articles'] as $items) { ?>
-  <div class="post">
-    <div class="img_container">
-        <img width="100%" src="<?= $items['img'] ?>">
-    </div>  
-    <div class="text_cont">
+    <div>
         <h2 class="post_title"><?= $items['title'] ?></h2>  
         <p><?= $items['body'] ?></p>
     </div>          
-  </div>  
 <?php } ?>
 </div>
 
