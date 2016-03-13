@@ -8,3 +8,5 @@ A very small php framework based on the mvc pattern
 - added a caching system
 - added a test page
 - added auto cache (requires no extra code from dev)
+- added a mysqli database connection class
+- converted main core classes to abstract classes to enfore children to adopt certain methods
