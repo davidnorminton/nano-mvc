@@ -16,7 +16,7 @@ abstract class view
      * method construct - loads the model instance into the $model property
      * Ensure the model is of type model
      */    
-    public function __construct(\nano\models\index $model)
+    public function __construct($model)
     {
          $this->model = $model;
     }
