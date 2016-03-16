@@ -22,9 +22,7 @@ class submitFormView extends \core\view {
      $this->vars['title'] = $this->model->getTitle();
      $email_data =  $this->model->getVars();
      $this->vars['name'] = $email_data['name'];
-     $this->vars['website'] = $email_data['website'];
-     $this->vars['email'] = $email_data['email'];
-     $this->vars['message'] = $email_data['message'];          
+     $this->vars['return_msg'] = $this->model->getReturnMsg();         
      // render method is in the \core\view class
      // used to build the page contents
      return $this->render( $this->vars, THEME_PATH . "submitForm.phtml");   
