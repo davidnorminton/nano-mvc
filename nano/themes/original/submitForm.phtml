@@ -3,9 +3,8 @@
 <?php 
    echo '<p class="summary">The posted data has passed through a controller, which then handled by a view which retrieved it\'s data from the model</p>';
    echo "Name posted : " . $this->vars['name'] . "<br />";
-   echo "Website posted : " . $this->vars['website'] . "<br />";
-   echo "Email posted : " . $this->vars['email'] . "<br />";
-   echo "Message posted : " . $this->vars['message'] . "<br />";         
+
+   echo "Message posted : " . $this->vars['return_msg'] . "<br />";         
 ?>
 </div>
 
