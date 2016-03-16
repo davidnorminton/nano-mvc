@@ -23,6 +23,9 @@ class submitForm extends \core\controller
         // get theme from parent class
         $this->theme = $this->getTheme();
         
+        // cache shoud be off for emails
+        $this->theme->cacheOn(False);
+        
         // theme will set header and footer variables
         $this->theme->setTitle($this->model->getTitle());
         
