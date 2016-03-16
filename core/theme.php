@@ -14,12 +14,23 @@ class theme{
 	private $title;
 	// strores paresed html of page
 	private $cache;
+	// turn cache on / off temp
+	private $cache_on = True;
 
 	
 	public function __get($name){
 		return $this->$name;
 	}
 
+    /**
+     * Turn cache off - Possible usage during POST requests
+     */
+    public function cacheOn($binary)
+    {
+       $this->cache_on = $binary;
+    
+    }
+    
     /**
      * method render
      * @param string $view - paresed html of page body
@@ -28,12 +39,13 @@ class theme{
      * $var cache 
      */
 	public function render($view){
+	
 		ob_start();
 		include($this->header);
 		echo $view;
 		include($this->footer);
 		// store contents of page to be used in cache
-		if (CACHE == True) {
+		if (CACHE == True && $this->cache_on == True) {
 		    $this->cache = ob_get_contents();
 		}
 		ob_end_flush();
