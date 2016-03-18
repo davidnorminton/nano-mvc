@@ -38,17 +38,25 @@ class theme{
      * if cache is set to on will store a string of page html in
      * $var cache 
      */
-	public function render($view){
-	
-		ob_start();
-		include($this->header);
-		echo $view;
-		include($this->footer);
-		// store contents of page to be used in cache
+	public function render($view, $includes=True){
+	    ob_start();
+	    
+	    if ($includes == True) {
+
+		    include($this->header);
+	 	    echo $view;
+	     	include($this->footer);
+
+        } else {
+           
+            echo $view;  
+        }	
+   		// store contents of page to be used in cache
 		if (CACHE == True && $this->cache_on == True) {
 		    $this->cache = ob_get_contents();
 		}
 		ob_end_flush();
+     	
 	}
 	
 	/**
