@@ -13,18 +13,19 @@ class db{
     
     private $server = 'localhost';
     
-    private $db_name = '';
+    private $db_name = 'rota';
     
-
+    public $conn;
+    
     public function __construct()
     {
         // Create connection
-        $conn = new \mysqli($this->server, $this->user, $this->password, $this->db_name);
+        $this->conn = new \mysqli($this->server, $this->user, $this->password, $this->db_name);
 
         // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
             echo "error";
-      } 
+        } 
    }
 } 
