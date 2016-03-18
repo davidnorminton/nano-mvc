@@ -23,7 +23,7 @@ class db{
         $this->conn = new \mysqli($this->server, $this->user, $this->password, $this->db_name);
 
         // Check connection
-        if ($conn->connect_error) {
+        if ($this->conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
             echo "error";
         } 
