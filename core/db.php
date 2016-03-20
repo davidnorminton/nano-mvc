@@ -1,22 +1,48 @@
 <?php
 /**
- * class to handle database connection and some common functions
+ * class to handle mysqli database connection and some common functions
  * change username, password, database, and server to correct settings
  */
 namespace core;
 
 class db{
-
-    private $user = 'root';
-   
-    private $password = 'root';
     
+    /** 
+     * @var string $user 
+     * databse user name
+     */
+    private $user = '';
+   
+   /**
+    * @var string $password
+    * database access password
+    */
+    private $password = 'root';
+    r
+    /**
+     * @var string  $server
+     * localhost or ip address
+     */
     private $server = 'localhost';
     
+    /**
+     * @var string $db_name
+     * database to access
+     */
     private $db_name = 'rota';
     
+    /**
+     * public @var resource $conn
+     * database connection
+     * access this property to use a database connection
+     */
     public $conn;
-    
+     
+    /**
+     * public method __consruct
+     * create a mysqli database connection
+     *
+     */
     public function __construct()
     {
         // Create connection
