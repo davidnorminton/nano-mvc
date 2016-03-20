@@ -5,7 +5,7 @@
  */
 namespace core;
 
-class db{
+class db {
     
     /** 
      * @var string $user 
@@ -18,7 +18,7 @@ class db{
     * database access password
     */
     private $password = 'root';
-    r
+    
     /**
      * @var string  $server
      * localhost or ip address
