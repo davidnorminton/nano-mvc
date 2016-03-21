@@ -7,7 +7,6 @@ A very small php framework based on the mvc pattern.
 - added a default index view for testing
 - added a caching system
 - added a test page
-
 - added a mysqli database connection class
 - converted main core classes to abstract classes to enfore children to adopt certain methods
 - added a send email class and test
