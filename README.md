@@ -10,3 +10,5 @@ A very small php framework based on the mvc pattern.
 - added a mysqli database connection class
 - converted main core classes to abstract classes to enfore children to adopt certain methods
 - added a send email class and test
+- added a redirect class
+- added a pdo connect class
