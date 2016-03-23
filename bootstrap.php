@@ -1,4 +1,11 @@
 <?php
+/**
+ * bootstrap - defines app wide constants
+ *           - adds the class autoloader
+ *           - creates an instance of the front controller
+ * @author David Norminton
+ * @email -davidnorminton@gmail.com
+ */
 // start a session if one hasn't already been created
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
