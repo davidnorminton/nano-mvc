@@ -1,7 +1,7 @@
 <?php
 /**
  * Email class to send any number of emails
- *
+ * sendmail or postfix must be installed on server
  */
 namespace core;
 
