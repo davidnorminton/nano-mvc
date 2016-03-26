@@ -22,7 +22,7 @@ class redirect {
            $msg = urlencode($message);
         }
         
-        if ($pram) {
+        if ($param) {
            $param = urlencode($param);
         }
         // if there are no parameters just redirect 
