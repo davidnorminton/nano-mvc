@@ -16,7 +16,8 @@ class theme{
 	private $cache;
 	// turn cache on / off temp
 	private $cache_on = True;
-
+    //page name
+    private $pageName;
 	
 	public function __get($name){
 		return $this->$name;
@@ -76,4 +77,32 @@ class theme{
 	  return $this->cache;
 	}
 	
+	/**
+	 * setPageName
+	 * @param string $pageName - set the page name
+	 */
+    public function setPageName($pageName)
+    {
+       $this->pageName = $pageName;
+    }	
+   
+   /**
+    * setHeader
+    * @param string $file
+    * this file should be in the theme directory
+    */ 
+   public function setHeader($file)
+   {
+      $this->header = THEME_PATH . $file;
+   } 
+   
+  /**
+   * setFooter
+   * @param string $file
+   * this file should be in the theme directory
+   */ 
+  public function setFooter($file)
+  {
+     $this->footer = THEME_PATH . $file;
+  } 
 }
