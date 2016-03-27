@@ -25,6 +25,7 @@ class theme{
 
     /**
      * Turn cache off - Possible usage during POST requests
+     * @param boolean $binary - 0 = off, 1 = on
      */
     public function cacheOn($binary)
     {
@@ -43,9 +44,8 @@ class theme{
 	    ob_start();
 	    
 	    if ($includes == True) {
-
-		    include($this->header);
-	 	    echo $view;
+		include($this->header);
+                echo $view;
 	     	include($this->footer);
 
         } else {
@@ -77,10 +77,10 @@ class theme{
 	  return $this->cache;
 	}
 	
-	/**
-	 * setPageName
-	 * @param string $pageName - set the page name
-	 */
+   /**
+    * setPageName
+    * @param string $pageName - set the page name 
+    */
     public function setPageName($pageName)
     {
        $this->pageName = $pageName;
