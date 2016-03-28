@@ -1,7 +1,10 @@
 <?php
 /**
  * main template class
- *
+ * builds page using data provided from view for the body
+ * and places the header and footer onto the page with it
+ * as all the page data is here it can be used to cache the page
+ *@author David Norminton
  */
 namespace core;
 
